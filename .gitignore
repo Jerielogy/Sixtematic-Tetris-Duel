@@ -1,0 +1,63 @@
+# ===============================================
+# CRITICAL SAFETY IGNORES (Addressing past errors)
+# ===============================================
+# These rules ensure the bulky, auto-generated folders are always ignored.
+Library/
+/[Ll]ibrary/
+Temp/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+
+# ===============================================
+# Essential Unity Ignores (Metadata & Settings)
+# ===============================================
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+.asset_dependencies
+*.log
+*.pdata
+*.pidb
+*.pdb
+*.mdb
+/[Mm]emoryCaptures/
+
+# ===============================================
+# IDE & Solution Files (Local to Developer)
+# ===============================================
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.booproj
+*.svd
+.vs/          # Visual Studio 2017+ cache
+.idea/       # JetBrains Rider
+.vscode/     # Visual Studio Code
+
+# ===============================================
+# Build Artifacts
+# ===============================================
+/[Ee]xport[eD]b[uU]ilt[pP]layers/
+/[Bb]ackups/
+*.apk
+*.aab
+
+# ===============================================
+# System Files
+# ===============================================
+.DS_Store    # MacOS files
+
+# ===============================================
+# Force Inclusion of Key Files (Exceptions)
+# ===============================================
+# The .meta files MUST be tracked for asset referencing to work.
+!/[Aa]ssets/**/*.meta
+!/[Pp]ackages/**/*.meta
+!/[Pp]roject[Ss]ettings/**/*.meta
+!/[Gg]raphics[Ss]ettings.asset.meta
+!/[Ee]ditor[Ss]ettings.asset.meta
