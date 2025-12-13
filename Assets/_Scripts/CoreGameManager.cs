@@ -10,7 +10,7 @@ public class CoreGameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI levelText;
     public GameObject gameOverPanel;
-    public GameObject pausePanel; // <--- NEW: Drag PausePanel here
+    public GameObject pausePanel;
 
     [Header("Audio Settings")]
     public AudioSource sfxSource;
@@ -19,8 +19,8 @@ public class CoreGameManager : MonoBehaviour
 
     [Header("Game State")]
     public bool isGameOver = false;
-    public bool isPaused = false; // <--- NEW: State Tracker
-    public int score = 0;
+    public bool isPaused = false;
+    public int score = 0; // The final score used for saving!
     public int level = 1;
     public int totalLinesCleared = 0;
     public float currentSpeed = 1.0f;
@@ -34,27 +34,31 @@ public class CoreGameManager : MonoBehaviour
     void Start()
     {
         UpdateUI();
-        // Ensure time is running when scene starts
         Time.timeScale = 1f;
     }
 
     // --- PAUSE FUNCTIONALITY ---
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
+
     public void TogglePause()
     {
-        // Don't pause if the game is already over
         if (isGameOver) return;
 
         isPaused = !isPaused;
 
         if (isPaused)
         {
-            // FREEZE TIME
             Time.timeScale = 0f;
             if (pausePanel) pausePanel.SetActive(true);
         }
         else
         {
-            // UNFREEZE TIME
             Time.timeScale = 1f;
             if (pausePanel) pausePanel.SetActive(false);
         }
@@ -63,7 +67,6 @@ public class CoreGameManager : MonoBehaviour
 
     public void PlayRotate()
     {
-        // Only play sound if NOT paused
         if (!isPaused && sfxSource != null && rotateSound != null)
             sfxSource.PlayOneShot(rotateSound);
     }
@@ -74,22 +77,40 @@ public class CoreGameManager : MonoBehaviour
             sfxSource.PlayOneShot(clearSound);
     }
 
+    // --- GAME OVER LOGIC WITH HIGH SCORE SAVE ---
     public void GameOver()
     {
         if (isGameOver) return;
+
         isGameOver = true;
+
+        // 1. CRITICAL: Save the final score before showing the panel
+        // This requires the HighScoreManager script to be in the scene.
+        HighScoreManager.CheckForNewHighScore(score);
+
+        // 2. Show the Game Over panel
         if (gameOverPanel) gameOverPanel.SetActive(true);
+
+        // Ensure game time is completely stopped
+        Time.timeScale = 0f;
     }
 
     public void ReturnToMenu()
     {
-        Time.timeScale = 1f; // Always reset time before leaving!
+        // 1. CRITICAL: Set the flag in PlayerPrefs to tell the Main Menu to open the score panel.
+        PlayerPrefs.SetInt("ShowHighScoresNext", 1);
+        PlayerPrefs.Save();
+
+        // 2. Load the menu scene
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
+    // ------------------------------------------
 
     public void RegisterLinesCleared(int count)
     {
-        if (count == 0) return;
+        if (count == 0 || isPaused || isGameOver) return;
+
         PlayLineClear();
 
         int points = 0;

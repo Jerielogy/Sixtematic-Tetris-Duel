@@ -9,44 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66869b09091574e4c972f42f5ae2268e, type: 3}
+  m_Script: {fileID: 0}
   m_Name: NetworkPrefabs
   m_EditorClassIdentifier: 
-  autoGenerate: 1
-  networkOnly: 1
-  poolByDefault: 0
-  folder: {fileID: 102900000, guid: 026307d164d934349948b47cf610d7bf, type: 3}
-  linkedNetworkPrefabs: []
-  prefabs:
-  - guid: 092352560a7497d4b977ad7f59db7463
-    prefab: {fileID: 2004196917291387823, guid: 092352560a7497d4b977ad7f59db7463, type: 3}
-    pooled: 0
-    warmupCount: 5
-  - guid: 49093c25c38a1e5479a766337e5171da
-    prefab: {fileID: 173311727439852268, guid: 49093c25c38a1e5479a766337e5171da, type: 3}
-    pooled: 0
-    warmupCount: 5
-  - guid: 8d1dd39970f935b4089603cf9eca4403
-    prefab: {fileID: 3629708155599722205, guid: 8d1dd39970f935b4089603cf9eca4403, type: 3}
-    pooled: 0
-    warmupCount: 5
-  - guid: 9a0727d6a8cc0764e97b6813c404c904
-    prefab: {fileID: 4112483815022732872, guid: 9a0727d6a8cc0764e97b6813c404c904, type: 3}
-    pooled: 0
-    warmupCount: 5
-  - guid: a9a1bca17f884114b975b23899e53de3
-    prefab: {fileID: 4700978831729388151, guid: a9a1bca17f884114b975b23899e53de3, type: 3}
-    pooled: 0
-    warmupCount: 5
-  - guid: b15aa5f907a085a49bc182ddb4d2cd88
-    prefab: {fileID: 6916487346286375627, guid: b15aa5f907a085a49bc182ddb4d2cd88, type: 3}
-    pooled: 0
-    warmupCount: 5
-  - guid: e985e46e67b01ba48bc511f09bdc2251
-    prefab: {fileID: 5664020317175742096, guid: e985e46e67b01ba48bc511f09bdc2251, type: 3}
-    pooled: 0
-    warmupCount: 5
-  - guid: ef9c7e3ef9621e945af71f32e23eeb33
-    prefab: {fileID: 3947963225487428978, guid: ef9c7e3ef9621e945af71f32e23eeb33, type: 3}
-    pooled: 0
-    warmupCount: 5
