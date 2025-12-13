@@ -288,14 +288,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24463896d697ad54a9e7f56e56e3a636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tetrominos:
+  tetrominoPrefabs:
   - {fileID: 3947963225487428978, guid: 5f566d12e6fa1bb46807490b2f0d5520, type: 3}
   - {fileID: 3629708155599722205, guid: 9d3c1e1a334f04b4e88710428f37a698, type: 3}
   - {fileID: 5664020317175742096, guid: 39be0744fc2bb2749902a9e3f1d5d29b, type: 3}
   - {fileID: 4112483815022732872, guid: fc993ce750a72b841b90d219b12eda2c, type: 3}
   - {fileID: 173311727439852268, guid: 62b1b506d8502e348a628fb76b0a6d4e, type: 3}
-  - {fileID: 4700978831729388151, guid: 110c2d77cd89ee84ba2a0b639866da77, type: 3}
   - {fileID: 6916487346286375627, guid: 5f253b7412d80ce45a4ad0e47bef3364, type: 3}
+  - {fileID: 4700978831729388151, guid: 110c2d77cd89ee84ba2a0b639866da77, type: 3}
+  previewSpawnPoint: {fileID: 1964087407}
 --- !u!4 &152464004
 Transform:
   m_ObjectHideFlags: 0
@@ -487,6 +488,7 @@ RectTransform:
   - {fileID: 1450713666}
   - {fileID: 392209445}
   - {fileID: 345796587}
+  - {fileID: 1964087407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1976,6 +1978,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955671399}
   m_CullTransparentMesh: 1
+--- !u!1 &1964087406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1964087407}
+  m_Layer: 5
+  m_Name: NextPieceSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1964087407
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964087406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 384662198}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &2111332232
 GameObject:
   m_ObjectHideFlags: 0

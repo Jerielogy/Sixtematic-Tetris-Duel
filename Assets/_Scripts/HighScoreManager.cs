@@ -78,4 +78,29 @@ public class HighScoreManager : MonoBehaviour
         // Return the requested number of top scores (default is 5)
         return manager.highScores.scores.Take(count).ToList();
     }
+
+    public void ClearDisplayAndReset()
+    {
+    
+        if (PlayerPrefs.HasKey(HighScoresKey))
+        {
+            PlayerPrefs.DeleteKey(HighScoresKey);
+            PlayerPrefs.Save();
+            Debug.Log($"High Scores deleted using key: {HighScoresKey}");
+        }
+        else
+        {
+            // Add logging to show if the key was missing
+            Debug.LogWarning($"Could not delete High Scores. Key '{HighScoresKey}' not found in PlayerPrefs.");
+        }
+
+        highScores.scores.Clear();
+
+        
+        HighScoreDisplay display = FindObjectOfType<HighScoreDisplay>();
+        if (display != null)
+        {
+            display.RefreshDisplay();
+        }
+    }
 }
